@@ -26,6 +26,7 @@ class HandleCollisionsAction(Action):
             script (Script): The script of Actions in the game.
         """
         if not self._is_game_over:
+            
             self._handle_food_collision(cast)
             self._handle_segment_collision(cast)
             self._handle_game_over(cast)
@@ -41,11 +42,11 @@ class HandleCollisionsAction(Action):
         snake = cast.get_first_actor("snakes")
         head = snake.get_head()
 
-        if head.get_position().equals(food.get_position()):
-            points = food.get_points()
+        if not head.get_position().equals(food.get_position()):
+            points = 1
             snake.grow_tail(points)
             score.add_points(points)
-            food.reset()
+            # food.reset()
     
     def _handle_segment_collision(self, cast):
         """Sets the game over flag if the snake collides with one of its segments.
