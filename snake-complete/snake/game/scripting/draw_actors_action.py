@@ -33,6 +33,7 @@ class DrawActorsAction(Action):
         segments2 = snake2.get_segments()
         segments = snake.get_segments()
         messages = cast.get_actors("messages")
+        start=cast.get_actors("Start")
 
         self._video_service.clear_buffer()
         self._video_service.draw_actor(food)
@@ -40,4 +41,5 @@ class DrawActorsAction(Action):
         self._video_service.draw_actors(segments2)
         self._video_service.draw_actor(score)
         self._video_service.draw_actors(messages, True)
+        self._video_service.draw_actors(start, True)
         self._video_service.flush_buffer()
