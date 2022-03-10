@@ -1,4 +1,6 @@
 from game.casting.actor import Actor
+from game.directing.director import Director
+from game.casting.cast import Cast
 
 
 class Score(Actor):
@@ -24,7 +26,9 @@ class Score(Actor):
             points (int): The points to add.
         """
         self._points += points
-        self.set_text("\nPoints: " + str(self._points))
+
+        if points == True:
+            self.set_text("\nPoints: " + str(self._points))
         
             
        
