@@ -79,7 +79,9 @@ class HandleCollisionsAction(Action):
         """
         if self._is_game_over:
             snake = cast.get_first_actor("snake")
+            snake2 = cast.get_first_actor("snake2")
             segments = snake.get_segments()
+            segments2 = snake2.get_segments()
             food = cast.get_first_actor("foods")
 
             x = int(constants.MAX_X / 2)
@@ -92,5 +94,7 @@ class HandleCollisionsAction(Action):
             cast.add_actor("messages", message)
 
             for segment in segments:
+                segment.set_color(constants.WHITE)
+            for segment in segments2:
                 segment.set_color(constants.WHITE)
             food.set_color(constants.WHITE)
