@@ -1,8 +1,10 @@
+from audioop import add
 import constants
 
 from game.casting.cast import Cast
 from game.casting.food import Food
 from game.casting.score import Score
+from game.casting.actor import Actor
 from game.casting.snake import Snake
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
@@ -16,13 +18,15 @@ from game.shared.color import Color
 from game.shared.point import Point
 
 
+
 def main():
     
     # create the cast
     cast = Cast()
-    cast.add_actor("foods", Food())
+    actor = Actor()
+    cast.add_actor("foods", Food()) 
     cast.add_actor("scores", Score())
-    # cast.add_actor("scores2", Score())
+    cast.add_actor("scores2", Score())
     cast.add_actor("snake", Snake(200,300,(constants.GREEN)))
     cast.add_actor("snake2", Snake(700,300,(constants.RED)))
     # start the game
