@@ -83,12 +83,12 @@ class HandleCollisionsAction(Action):
         #     if head.get_position().equals(segment.get_position()):
         #         self._is_game_over = True
 
-        for segment in segments:
-            for segments in segments2:
-                if head.get_position().equals(segment.get_position()):
-                    self._is_game_over = True
-                elif head.get_position().equals(segments.get_position()):
-                    self._is_game_over = True
+        # for segment in segments:
+        #     for segments in segments2:
+        #         if head2.get_position().equals(segment.get_position()):
+        #             self._is_game_over = True
+        #         if head.get_position().equals(segments.get_position()):
+        #             self._is_game_over = True
         
 
     def _handle_game_over(self, cast):
