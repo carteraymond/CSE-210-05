@@ -68,14 +68,22 @@ class HandleCollisionsAction(Action):
         head2 = snake2.get_segments()[0]
         segments = snake.get_segments()[1:]
         segments2 = snake2.get_segments()[1:]
-        
-        # if head.get_position().equals(segments2.get_position()):
-        #     self._is_game_over = True
-        
-        for segment in segments:
+
+        segments3 = snake2.get_segments()[0:]
+        segments4 = snake.get_segments()[0:]    
+
+        for segment in segments3:
             if head.get_position().equals(segment.get_position()):
                 self._is_game_over = True
-        
+
+        for segment in segments4:
+            if head2.get_position().equals(segment.get_position()):
+                self._is_game_over = True
+
+        for segment in segments:
+            if head.get_position().equals(segment.get_position()):
+                    self._is_game_over = True
+
         for segment in segments2:
             if head2.get_position().equals(segment.get_position()):
                 self._is_game_over = True
