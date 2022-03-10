@@ -42,7 +42,7 @@ class HandleCollisionsAction(Action):
         snake = cast.get_first_actor("snake")
         snake2 = cast.get_first_actor("snake2")
         head = snake.get_head()
-        head2 = snake.get_head()
+        head2 = snake2.get_head()
 
         if not head.get_position().equals(food.get_position()):
             points = 1
@@ -72,17 +72,23 @@ class HandleCollisionsAction(Action):
         for segment in segments:
             if head.get_position().equals(segment.get_position()):
                 self._is_game_over = True
-        for segment in segments:
-            if head2.get_position().equals(segment.get_position()):
-                self._is_game_over = True
+        # for segment in segments:
+        #     if head2.get_position().equals(segment.get_position()):
+        #         self._is_game_over = True
         
         for segment in segments2:
             if head2.get_position().equals(segment.get_position()):
                 self._is_game_over = True
-        for segment in segments2:   
-            if head.get_position().equals(segment.get_position()):
-                self._is_game_over = True
+        # for segment in segments2:   
+        #     if head.get_position().equals(segment.get_position()):
+        #         self._is_game_over = True
 
+        for segment in segments:
+            for segments in segments2:
+                if head.get_position().equals(segment.get_position()):
+                    self._is_game_over = True
+                elif head.get_position().equals(segments.get_position()):
+                    self._is_game_over = True
         
 
     def _handle_game_over(self, cast):
