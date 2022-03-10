@@ -12,6 +12,6 @@ CAPTION = "Snake"
 SNAKE_LENGTH = 2
 WHITE = Color(255, 255, 255)
 RED = Color(255, 0, 0)
-RED_Bike = Color(255, 0, 0)
+RED = Color(255, 0, 0)
 YELLOW = Color(255, 255, 0)
 GREEN = Color(0, 255, 0)
