@@ -31,6 +31,8 @@ root                        (project root folder)
   +---- point.py            (Control position X's and Y's¡son the sreen)
   +-- __main__.py           (program entry point)
 +-- README.md               (general info)
+
+
 Required Technologies
 Python 3.9.0
 Authors
