@@ -12,9 +12,9 @@ You can also run the program from an IDE like Visual Studio Code. Start your IDE
 
 Project Structure
 The project files and folders are organized as follows:
-
+============================================================
 root                        (project root folder)
-+-- cse210-05               (source code for game)
++-- cse210-04               (source code for game)
   +-- game                  (specific classes)
   +--- casting              (ALL THE ACTOR IN OUR GAME AND OPERATIONS)
   +---- actor.py            (the main class actor: this class will be the parent)
@@ -32,10 +32,12 @@ root                        (project root folder)
   +-- __main__.py           (program entry point)
 +-- README.md               (general info)
 
-
+============================================================
 Required Technologies
 Python 3.9.0
+
+============================================================
 Authors
 Melanie Cristeche (cri21012@byui.edu)
 Carter Raymond (ray21006@byui.edu)
-Leonard Salazar (sal21034@byui.edu)
+Leonard Salazar (sal21034@byui.edu?
