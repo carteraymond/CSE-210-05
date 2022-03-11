@@ -1,4 +1,8 @@
-from audioop import add
+#from audioop import add
+import os
+import pygame
+from pygame.locals import *
+
 import constants
 
 from game.casting.cast import Cast
@@ -6,6 +10,7 @@ from game.casting.food import Food
 from game.casting.score import Score
 from game.casting.actor import Actor
 from game.casting.snake import Snake
+
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import MoveActorsAction
@@ -17,10 +22,8 @@ from game.services.video_service import VideoService
 from game.shared.color import Color
 from game.shared.point import Point
 
-
-
 def main():
-    
+       
     # create the cast
     cast = Cast()
     actor = Actor()
@@ -30,21 +33,27 @@ def main():
 
     cast.add_actor("snake", Snake(200,300,(constants.GREEN)))
     cast.add_actor("snake2", Snake(700,300,(constants.YELLOW)))
+
     # start the game
     keyboard_service = KeyboardService()
     video_service = VideoService()
-
+   
     script = Script()
     script.add_action("input", ControlActorsAction(keyboard_service))
     script.add_action("update", MoveActorsAction())
     script.add_action("update", HandleCollisionsAction())
     script.add_action("output", DrawActorsAction(video_service))
     
+    # Start playing the song
+    pygame.mixer.init()
+    testing = os.path.dirname(__file__)+'/soundtrack.mp3'
+    pygame.mixer.music.load(testing)
+    pygame.mixer.music.set_volume(0.7)
+    pygame.mixer.music.play()
 
-         
     director = Director(video_service)
     director.start_game(cast, script)
-
+   
 
 if __name__ == "__main__":
     main()
