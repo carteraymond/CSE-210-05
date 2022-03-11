@@ -17,16 +17,19 @@ py main.py
 ``` 
 You can also run the program from an IDE like Visual Studio Code. Start your IDE and open the project folder. Select the main module inside the dice folder and click the "run" button.
 
-## Getting Started
----
+# Getting Started
 Make sure you have Python 3.8.0 or newer and Raylib Python CFFI 3.7 and Pygame installed and running on your machine. You can install Raylib and Pygame Python by opening a terminal and running the following command:
+
 ```
 python3 -m pip install raylib
 python3 -m pip install pygame
+```
+After you installed these libraries, you can run without problem this programa.
 
-## Project Structure
----
+# Project Structure
+
 The project files and folders are organized as follows:
+
 ```
 root                        (project root folder)
 +-- cse-210-05              (project main folder)
@@ -60,14 +63,15 @@ root                        (project root folder)
     +-- README.md               (General info)
 ```
 
-## Required Technologies
----
+# Required Technologies
 * Python 3.9.0
 * Raylib Python 3.7
 * Pygame 3.7
 
-## Authors
----
+# Authors
+
+```
 * Melanie Cristeche (cri21012@byui.edu)
 * Carter Raymond (ray21006@byui.edu)
 * Leonard Salazar (sal21034@byui.edu)
+```
