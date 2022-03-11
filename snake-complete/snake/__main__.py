@@ -27,7 +27,7 @@ def main():
     cast.add_actor("foods", Food()) 
     cast.add_actor("scores", Score())
     cast.add_actor("scores2", Score())
-    cast.add_actor("snake", Snake(200,300,(constants.GREEN)))
+    cast.add_actor("snake", Snake(200,300,(constants.BLUE)))
     cast.add_actor("snake2", Snake(700,300,(constants.RED)))
     # start the game
     keyboard_service = KeyboardService()
@@ -38,8 +38,6 @@ def main():
     script.add_action("update", MoveActorsAction())
     script.add_action("update", HandleCollisionsAction())
     script.add_action("output", DrawActorsAction(video_service))
-    
-
          
     director = Director(video_service)
     director.start_game(cast, script)
