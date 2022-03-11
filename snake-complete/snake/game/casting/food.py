@@ -16,7 +16,7 @@ class Food(Actor):
     def __init__(self):
         "Constructs a new Food."
         super().__init__()
-        self._points = 0
+        self._speed = 1.2
         self.set_text("@")
         self.set_color(constants.RED)
         self.reset()
@@ -30,10 +30,10 @@ class Food(Actor):
         position = position.scale(constants.CELL_SIZE)
         self.set_position(position)
         
-    def get_points(self):
-        """Gets the points the food is worth.
+    def get_boost(self):
+        """Gets the speed that the food will grant.
         
         Returns:
-            points (int): The points the food is worth.
+            points (int): The speed that the food wil grant
         """
-        return self._points
+        return self._speed

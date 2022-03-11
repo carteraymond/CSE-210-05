@@ -37,7 +37,7 @@ class DrawActorsAction(Action):
         start=cast.get_actors("Start")
 
         self._video_service.clear_buffer()
-        # self._video_service.draw_actor(food)
+        self._video_service.draw_actor(food)
         self._video_service.draw_actors(segments)
         self._video_service.draw_actors(segments2)
         self._video_service.draw_actor(score)

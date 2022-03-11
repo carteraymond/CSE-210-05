@@ -1,5 +1,6 @@
 import constants
 
+
 from game.casting.cast import Cast
 from game.casting.food import Food
 from game.casting.score import Score
@@ -17,13 +18,13 @@ from game.shared.point import Point
 
 
 def main():
-    
+    green=constants.GREEN
     # create the cast
     cast = Cast()
     cast.add_actor("foods", Food())
     cast.add_actor("scores", Score())
     # cast.add_actor("scores2", Score())
-    cast.add_actor("snake", Snake(200,300,(constants.GREEN)))
+    cast.add_actor("snake", Snake(200,300,green))
     cast.add_actor("snake2", Snake(700,300,(constants.RED)))
     # start the game
     keyboard_service = KeyboardService()
