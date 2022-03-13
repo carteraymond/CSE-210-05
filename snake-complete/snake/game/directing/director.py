@@ -34,9 +34,9 @@ class Director:
             message=cast.get_first_actor("Start")
             if message==None:
                 message = Actor()
-                message.set_text("Ready to Play?\nPress B to Begin")
+                message.set_text("CYCLE AND TRAILS GAME\n\t\tReady to Play?\n\t\tPress B to Begin")
                 message.set_position(Point(450,300))
-                message.set_font_size(40)
+                message.set_font_size(20)
                 cast.add_actor("Start", message)
             else:
                 self._execute_actions("output", cast, script)
