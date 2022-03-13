@@ -1,5 +1,4 @@
 import constants
-import time
 from game.casting.actor import Actor
 from game.scripting.action import Action
 from game.shared.point import Point
@@ -49,8 +48,7 @@ class HandleCollisionsAction(Action):
         snake2 = cast.get_first_actor("snake2")
         head = snake.get_head()
         head2 = snake2.get_head()
-        segments = snake.get_segments()
-        segments2 = snake2.get_segments()
+        
 
         if head.get_position().equals(food.get_position()):
             score.add_points(1)
