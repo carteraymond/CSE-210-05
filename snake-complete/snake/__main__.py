@@ -1,7 +1,7 @@
-#from audioop import add
-import os
-import pygame
-from pygame.locals import *
+# #from audioop import add
+# import os
+# import pygame
+# from pygame.locals import *
 
 import constants
 
@@ -27,7 +27,7 @@ def main():
        
     # create the cast
     cast = Cast()
-    actor = Actor()
+    # actor = Actor()
     cast.add_actor("foods", Food()) 
     cast.add_actor("scores", Score(constants.GREEN))
     cast.add_actor("scores2", Score(constants.YELLOW))
@@ -45,12 +45,13 @@ def main():
     script.add_action("update", HandleCollisionsAction())
     script.add_action("output", DrawActorsAction(video_service))
     
-    # Start playing the song
-    pygame.mixer.init()
-    testing = os.path.dirname(__file__)+'/soundtrack.mp3'
-    pygame.mixer.music.load(testing)
-    pygame.mixer.music.set_volume(0.7)
-    pygame.mixer.music.play()
+    # # Start playing the song
+    # pygame.mixer.init()
+    # # testing = os.path.dirname(__file__)+soundtrack.mp3
+    # testing=pygame.mixer.Sound("soundtrack.mp3")
+    # pygame.mixer.music.load(testing)
+    # pygame.mixer.music.set_volume(0.7)
+    # pygame.mixer.music.play()
 
     director = Director(video_service)
     director.start_game(cast, script)
