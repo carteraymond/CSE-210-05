@@ -1,6 +1,10 @@
 from game.services.keyboard_service import KeyboardService
 from game.casting.actor import Actor
 from game.shared.point import Point 
+import pyray as r1
+
+from game.services.sound_service import SounddService
+
 class Director:
     """A person who directs the game. 
     
@@ -19,6 +23,7 @@ class Director:
         self._video_service = video_service
         self._keyboard_service=KeyboardService()
         self._Is_Loading=True
+        self.sound_all = SounddService()
         
     def start_game(self, cast, script):
         """Starts the game using the given cast and script. Runs the main game loop.
@@ -29,9 +34,15 @@ class Director:
         """
         
         self._video_service.open_window()
-        
+
+        self.sound_all.prepare_sound()
+        self.sound_all.play_intro_sound()
+        self.sound_all.play_background_sound()
+
         while self._Is_Loading:
             message=cast.get_first_actor("Start")
+            r1.update_music_stream(self.sound_all.introsound)
+            
             if message==None:
                 message = Actor()
                 message.set_text("CYCLE AND TRAILS GAME\n\t\tReady to Play?\n\t\tPress B to Begin")
@@ -44,11 +55,18 @@ class Director:
             if self._keyboard_service.is_key_down("b"):
                 self._Is_Loading=False
                 cast.remove_actor("Start", message)
-                break    
+                break
+                
         while self._video_service.is_window_open():
             self._execute_actions("input", cast, script)
             self._execute_actions("update", cast, script)
             self._execute_actions("output", cast, script)
+
+            r1.stop_music_stream(self.sound_all.introsound)
+            r1.update_music_stream(self.sound_all.backgroundsound)
+        
+        r1.stop_music_stream(self.sound_all.backgroundsound)    
+
         self._video_service.close_window()
 
     def _execute_actions(self, group, cast, script):

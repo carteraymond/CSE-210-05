@@ -3,6 +3,9 @@ from game.casting.actor import Actor
 from game.scripting.action import Action
 from game.shared.point import Point
 
+import pyray as r2
+from game.services.sound_service import SounddService
+
 class HandleCollisionsAction(Action):
     """
     An update action that handles interactions between the actors.
@@ -17,6 +20,9 @@ class HandleCollisionsAction(Action):
     def __init__(self):
         """Constructs a new HandleCollisionsAction."""
         self._is_game_over = False
+
+        self.sound_gameover = None
+        self.sound_gameover = SounddService()
 
     def execute(self, cast, script):
         """Executes the handle collisions action.
@@ -72,7 +78,7 @@ class HandleCollisionsAction(Action):
         head2 = snake2.get_head()
         segments = snake.get_segments()[1:]
         segments2 = snake2.get_segments()[1:]
-          
+        
 
         for segment in segments:
             if head.get_position().equals(segment.get_position()):
@@ -93,6 +99,8 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
+
+
         if self._is_game_over:
             snake = cast.get_first_actor("snake")
             snake2 = cast.get_first_actor("snake2")
@@ -115,3 +123,7 @@ class HandleCollisionsAction(Action):
             for segment in segments2:
                 segment.set_color(constants.WHITE)
             food.set_color(constants.WHITE)
+
+            
+            self.sound_gameover.play_gameover_sound()
+            r2.update_music_stream(self.sound_gameover.gameoversound)

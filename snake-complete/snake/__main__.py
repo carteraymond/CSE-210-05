@@ -5,7 +5,6 @@
 
 import constants
 
-
 from game.casting.cast import Cast
 from game.casting.food import Food
 from game.casting.score import Score
@@ -44,15 +43,7 @@ def main():
     script.add_action("update", MoveActorsAction())
     script.add_action("update", HandleCollisionsAction())
     script.add_action("output", DrawActorsAction(video_service))
-    
-    # # Start playing the song
-    # pygame.mixer.init()
-    # # testing = os.path.dirname(__file__)+soundtrack.mp3
-    # testing=pygame.mixer.Sound("soundtrack.mp3")
-    # pygame.mixer.music.load(testing)
-    # pygame.mixer.music.set_volume(0.7)
-    # pygame.mixer.music.play()
-
+   
     director = Director(video_service)
     director.start_game(cast, script)
    
